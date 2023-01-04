@@ -30,7 +30,8 @@ int    checker(std::string chosen)
             return (i);
         i++;
     }
-    return (-1);
+    std::cout << "Error Input" << std::endl;
+    exit(1);
 }
 
 void    Harl::complain(std::string level)

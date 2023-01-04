@@ -1,7 +1,7 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name): name(name)
+HumanB::HumanB(std::string name): name(name), WeaponB(NULL)
 {
     std::cout << "The default Constructor called for : " << this->name << std::endl;
 }
