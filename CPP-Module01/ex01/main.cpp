@@ -2,12 +2,11 @@
 
 int main()
 {
+	int i = 3;
 	Zombie *newZZ;
-	newZZ = zombieHorde(10, "test");
-	for (int i = 0; i < 10; i++)
-	{
+	newZZ = zombieHorde(i, "test");
+	while(i--)
 		newZZ[i].announce();
-	}
 	delete [] newZZ;
 	return 0; 
 }

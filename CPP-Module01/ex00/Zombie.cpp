@@ -8,7 +8,6 @@ Zombie::Zombie(std::string name)
 
 Zombie::Zombie()
 {
-	this->name = "Foo";
 	std::cout << "Default Constructor called" << std::endl;
 }
 

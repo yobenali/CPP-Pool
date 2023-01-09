@@ -9,6 +9,11 @@ int		main(int ac, char **av)
     std::ofstream outFile;
     std::string fOut;
 
+    if (ac != 4)
+    {
+        std::cout << "invalide args" << std::endl;
+        return (0);
+    }
     if (ac == 4)
     {
         inFile.open(av[1]);
@@ -29,9 +34,9 @@ int		main(int ac, char **av)
                 {
                     buff.erase(index, strlen(av[2]));
                     buff.insert(index, av[3]);
+                    index += strlen(av[3]);
                 }
-                outFile << buff;
-                outFile << '\n';
+                outFile << buff<< std::endl;
             }
             outFile.close();
         }
