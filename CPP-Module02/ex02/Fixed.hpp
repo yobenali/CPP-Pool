@@ -22,7 +22,7 @@ public:
 	bool operator<=(Fixed const &obj) const;
 	bool operator==(Fixed const &obj) const;
 	bool operator!=(Fixed const &obj) const;
-	Fixed &operator=(Fixed const &obj) const;
+	Fixed &operator=(Fixed const &obj);
 
 	Fixed operator+(Fixed const &obj);
 	Fixed operator-(Fixed const &obj);

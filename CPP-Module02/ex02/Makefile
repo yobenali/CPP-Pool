@@ -1,6 +1,6 @@
-NAME = Fixed
+NAME = a.out
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp FixedCmp.cpp FixedOthers.cpp
 
 CC = c++
 
