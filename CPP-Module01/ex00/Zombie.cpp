@@ -3,12 +3,7 @@
 Zombie::Zombie(std::string name)
 {
 	setName(name);
-	std::cout << "The Constructor called" << std::endl; 
-}
-
-Zombie::Zombie()
-{
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "Default Constructor called" << std::endl; 
 }
 
 Zombie::~Zombie()

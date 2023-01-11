@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 
 int		main(int ac, char **av)
 {
+    int index;
     std::string buff;
     std::ifstream inFile;
     std::ofstream outFile;
@@ -24,7 +24,6 @@ int		main(int ac, char **av)
             return 0;
         }
         outFile.open(fOut + ".replace");
-        int index;
         if (strlen(av[2]) > 0 && strlen(av[3]) > 0)
         {
             while (getline(inFile, buff))

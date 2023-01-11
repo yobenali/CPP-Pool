@@ -18,8 +18,6 @@ void    HumanB::attack()
         std::cout << this->name << " attacks with their " << WeaponB->getType() << std::endl;
 }
 
-
-
 void    HumanB::setWeapon(Weapon & WeaponB)
 {
     this->WeaponB = &WeaponB;

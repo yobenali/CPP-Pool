@@ -2,23 +2,37 @@
 
 Fixed Fixed::operator+(Fixed const &obj)
 {
-    return Fixed(this->number + obj.number);
+    Fixed temp;
+ 
+    temp.setRawBits((this->number + obj.number) >> this->fNumber);
+    return (temp);
 }
 Fixed Fixed::operator-(Fixed const &obj)
 {
-    return Fixed(this->number - obj.number);
+    Fixed temp;
+ 
+    temp.setRawBits((this->number - obj.number) >> this->fNumber);
+    return (temp);
 }
 Fixed Fixed::operator*(Fixed const &obj)
 {
-    return Fixed(this->number * obj.number);
+    Fixed temp;
+ 
+    temp.setRawBits((this->number * obj.number) >> this->fNumber);
+    return (temp);
 }
 Fixed Fixed::operator/(Fixed const &obj)
 {
-    return Fixed(this->number / obj.number);
+    Fixed temp;
+ 
+    temp.setRawBits((this->number / obj.number) >> this->fNumber);
+    return (temp);
 }
 Fixed    Fixed::operator++(int)
-{ 
-    return (this->number++);
+{
+    Fixed content(*this);
+    this->number++;
+    return (content);
 }
 Fixed    Fixed::operator++()
 {
@@ -27,13 +41,15 @@ Fixed    Fixed::operator++()
 }
 Fixed    Fixed::operator--(int)
 {
+   Fixed content(*this);
     this->number--;
-    return (*this);
-
+    return (content);
 }
+
 Fixed    Fixed::operator--()
 {
-    return (this->number--);
+    --this->number;
+    return (*this);
 }
 
 void Fixed::setRawBits(int const raw)
