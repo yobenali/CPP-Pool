@@ -3,10 +3,10 @@
 
 # include "ClapTrap.hpp" 
 
-class ClavTrap : public ClavTrap
+class ClavTrap : public ClapTrap
 {
 private:
-    /* data */
+    bool guardGate;
 public:
     ClavTrap();
     ClavTrap(std::string name);
