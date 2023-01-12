@@ -1,6 +1,6 @@
-NAME = Fixed
+NAME = ClavTrap
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp ClavTrap
 
 CC = c++
 
