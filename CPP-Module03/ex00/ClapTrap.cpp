@@ -16,6 +16,12 @@ ClapTrap::ClapTrap(std::string name)
     this->energyPoints = 10;
     this->attackDamage = 0;
     std::cout << "the Constructor called For "<< this->name << std::endl;
+} 
+
+CLapTrap::ClapTrap(const ClapTrap &obj)
+{
+    *this = obj;
+    std::cout << "Copy Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

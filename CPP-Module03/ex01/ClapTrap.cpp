@@ -3,18 +3,25 @@
 ClapTrap::ClapTrap()
 {
     this->name = "Default";
-    this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
+    this->hitPoints = 10;
+    this->energyPoints = 10;
+    this->attackDamage = 0;
     std::cout << "Default Constructor called" << std::endl;
 }
+
+CLapTrap::ClapTrap(const ClapTrap &obj)
+{
+    *this = obj;
+    std::cout << "Copy Constructor called" << std::endl;
+}
+
 
 ClapTrap::ClapTrap(std::string name)
 {
     this->name = name;
-    this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
+    this->hitPoints = 10;
+    this->energyPoints = 10;
+    this->attackDamage = 0;
     std::cout << "the Constructor called For "<< this->name << std::endl;
 }
 
@@ -61,4 +68,10 @@ void    ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap " << this->name <<" doesn't have enough energy points" << std::endl;
     else if (hitPoints == 0)
         std::cout << "ClapTrap can't be Repaired cause already is dead " << std::endl;
+}
+
+CalpTrap    &ClapTrap::operator=(const ClapTrap &obj)
+{
+    this->name = obj.name;
+    std::cout << "Copy assignment operator called" << std::endl;
 }
