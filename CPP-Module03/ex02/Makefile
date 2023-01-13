@@ -1,6 +1,6 @@
-NAME = Fixed
+NAME = FragTrap
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp
 
 CC = c++
 
