@@ -14,7 +14,7 @@ Fixed::Fixed(float const Fixed)
 
 Fixed::Fixed(const int Fixed)
 {
-	this->number = (Fixed << this->fNumber);
+	this->number = (Fixed * 256);
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -38,7 +38,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt( void ) const
 {
-	return (this->number >> this->fNumber);
+	return (this->number / 256);
 }
 
 Fixed::~Fixed()
