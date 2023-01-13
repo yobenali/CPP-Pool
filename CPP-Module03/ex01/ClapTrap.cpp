@@ -9,7 +9,7 @@ ClapTrap::ClapTrap()
     std::cout << "Default Constructor called" << std::endl;
 }
 
-CLapTrap::ClapTrap(const ClapTrap &obj)
+ClapTrap::ClapTrap(const ClapTrap &obj)
 {
     *this = obj;
     std::cout << "Copy Constructor called" << std::endl;
@@ -70,8 +70,12 @@ void    ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap can't be Repaired cause already is dead " << std::endl;
 }
 
-CalpTrap    &ClapTrap::operator=(const ClapTrap &obj)
+ClapTrap    &ClapTrap::operator=(const ClapTrap &obj)
 {
     this->name = obj.name;
+    this->hitPoints = obj.hitPoints;
+    this->energyPoints = obj.energyPoints;
+    this->attackDamage = obj.attackDamage;
     std::cout << "Copy assignment operator called" << std::endl;
+    return *this;
 }

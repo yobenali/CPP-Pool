@@ -12,8 +12,8 @@ int main()
     for (int i = 0; i < 6; i++)
     {
         secnd.attack("someone");
-        secnd.takeDamage(2);
-        secnd.beRepaired(3);
+        secnd.takeDamage(3);
+        secnd.beRepaired(2);
     }
     return (0);
 }
