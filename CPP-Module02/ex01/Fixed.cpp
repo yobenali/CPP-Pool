@@ -9,12 +9,12 @@ Fixed::Fixed()
 Fixed::Fixed(float const Fixed)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->number = (roundf(Fixed * 256));
+	this->number = roundf(Fixed * (1 << this->fNumber));
 }
 
 Fixed::Fixed(const int Fixed)
 {
-	this->number = (Fixed * 256);
+	this->number = (Fixed * (1 << this->fNumber));
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -33,19 +33,19 @@ Fixed	&Fixed::operator=(Fixed const &obj)
 
 float Fixed::toFloat(void) const
 {
-	return ((float) this->number / 256);
+	return (((float)this->number / (float)(1 << this->fNumber)));
 }
 
 int Fixed::toInt( void ) const
 {
-	return (this->number / 256);
+	return (this->number / (1 << this->fNumber));
 }
 
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
-
+ 
 std::ostream& operator<<(std::ostream& out, const Fixed &obj)
 {
 	out << obj.toFloat();

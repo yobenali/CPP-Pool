@@ -16,5 +16,6 @@ int main()
         secnd.beRepaired(3);
     }
     secnd.guardGate();
+
     return (0);
 }

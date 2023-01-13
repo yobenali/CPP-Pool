@@ -5,8 +5,6 @@
 
 class FragTrap : public ClapTrap
 {
-private:
-    bool guard;
 public:
     FragTrap();
     FragTrap(const FragTrap &obj);
