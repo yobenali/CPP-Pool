@@ -21,3 +21,8 @@ Animal &Animal::operator=(const Animal &obj)
     this->type = obj.type;
     std::cout << "Copy assigment operator called" << std::endl;
 }
+
+void Animal::makeSound()
+{
+    std::cout << "cats don't bark" << std::endl;
+}
