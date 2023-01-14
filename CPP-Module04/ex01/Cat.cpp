@@ -2,7 +2,6 @@
 
 Cat::Cat()
 {
-    this->CatBrain 
     this->type = "Cat";
     std::cout << "Cat Constructor called" << std::endl;
 }
