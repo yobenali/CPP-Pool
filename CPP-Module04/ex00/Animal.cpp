@@ -12,6 +12,10 @@ Animal::Animal(std::string type)
     std::cout << "Constructor called For " << this->type << std::endl;
 }
 
+std::string const &Animal::getType() const
+{
+    return this->type;
+}
 
 Animal::Animal(const Animal &obj)
 {
