@@ -1,4 +1,4 @@
-#include "Polymorphism.hpp"
+#include "Animal.hpp"
 
 Animal::Animal()
 {
@@ -20,9 +20,10 @@ Animal &Animal::operator=(const Animal &obj)
 {
     this->type = obj.type;
     std::cout << "Copy assigment operator called" << std::endl;
+    return *this;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "cats don't bark" << std::endl;
 }

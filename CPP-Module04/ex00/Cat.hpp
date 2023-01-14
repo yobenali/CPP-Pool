@@ -1,17 +1,16 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Polymorphism.hpp"
+# include "Animal.hpp"
 
-class Cat
+class Cat : public Animal
 {
-protected:
-    std::string type;
 public:
     Cat();
     Cat(const Cat &obj);
-    ~Cat();
     Cat &operator=(const Cat &obj);
+    ~Cat();
+  
     void    makeSound(void);
 };
 

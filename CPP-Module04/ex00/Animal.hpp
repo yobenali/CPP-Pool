@@ -1,5 +1,5 @@
-#ifndef POLYMORPHISM_CPP
-# define POLYMORPHISM_CPP
+#ifndef ANIMAL_CPP
+# define ANIMAL_CPP
 
 # include <iostream>
 
@@ -9,10 +9,13 @@ protected:
     std::string type;
 public:
     Animal();
+    Animal(std::string type);
     Animal(const Animal &obj);
-    ~Animal();
     Animal &operator=(const Animal &obj);
-    void    makeSound(void);
+    virtual ~Animal();
+    
+    std::string const &getType() const ;
+    void    makeSound(void) const;
 };
 
 #endif

@@ -21,6 +21,7 @@ Dog &Dog::operator=(const Dog &obj)
 {
     this->type = obj.type;
     std::cout << "Copy assigment called for Dog" << std::endl;
+    return *this;
 }
 
 void    Dog::makeSound()

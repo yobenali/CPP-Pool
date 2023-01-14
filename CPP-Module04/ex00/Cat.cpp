@@ -21,6 +21,7 @@ Cat &Cat::operator=(const Cat &obj)
 {
     this->type = obj.type;
     std::cout << "Copy assigment called for Cat" << std::endl;
+    return *this;
 }
 
 void    Cat::makeSound()

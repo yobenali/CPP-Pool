@@ -1,17 +1,15 @@
-#ifndef Dog_HPP
-# define Dog_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include "Polymorphism.hpp"
+# include "Animal.hpp"
 
-class Dog
+class Dog : public Animal
 {
-protected:
-    std::string type;
 public:
     Dog();
     Dog(const Dog &obj);
-    ~Dog();
     Dog &operator=(const Dog &obj);
+    ~Dog();
     void    makeSound(void);
 };
 
