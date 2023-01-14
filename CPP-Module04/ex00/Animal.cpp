@@ -2,13 +2,21 @@
 
 Animal::Animal()
 {
-    std::cout << "Default Constructor called" << std::endl;
+    this->type = "Animal!!";
+    std::cout << "Default Constructor called For " << this->type << std::endl;
 }
+
+Animal::Animal(std::string type)
+{
+    this->type = type;
+    std::cout << "Constructor called For " << this->type << std::endl;
+}
+
 
 Animal::Animal(const Animal &obj)
 {
-    std::cout << "Copy Constructer called" << std::endl;
     *this = obj;
+    std::cout << "Copy Constructer called" << std::endl;
 }
 
 Animal::~Animal()
@@ -18,7 +26,7 @@ Animal::~Animal()
 
 Animal &Animal::operator=(const Animal &obj)
 {
-    this->type = obj.type;
+    this->type = obj.getType();
     std::cout << "Copy assigment operator called" << std::endl;
     return *this;
 }
