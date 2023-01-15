@@ -4,7 +4,7 @@ SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
 RM = rm -rf
 

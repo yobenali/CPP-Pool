@@ -9,20 +9,26 @@ Dog::Dog()
 
 Dog::Dog(const Dog &obj)
 {
-   this->DogBrain = new Brain(*obj.getBrain());
+    *this = obj;
     std::cout << "Dog Copy Constructor called" << std::endl;
 }
 
 Dog::~Dog()
 {
-    delete this->DogBrain;
+     delete this->DogBrain;
     std::cout << "Dog Destructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
-    this->type = obj.type;
     std::cout << "Copy assigment called for Dog" << std::endl;
+    this->DogBrain = new Brain();
+    for(size_t i = 0; i < 100; i++)
+    {
+        this->DogBrain->setIdea(obj.DogBrain->getIdeas(i), i);
+        std::cout << this->DogBrain->getIdeas(i) << "\n";
+    }
+    this->type = obj.type;
     return *this;
 }
 

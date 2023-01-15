@@ -2,19 +2,13 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-int main()
-{
-    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-    const Animal* i = new Cat();
-    const Animal* j = new Dog();
-    const Animal* x = j;
-    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-    i->makeSound();
-    j->makeSound();
-    x->makeSound();
-    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-    delete i;
-    delete j;
-    // system("leaks Animal");
-    return 0; 
-}
+int main() {
+const Animal* j = new Dog();
+const Animal* i = new Cat();
+const Dog a;
+const Dog  b = a;
+
+delete j;//should not create a leak delete i;
+delete i;
+system("leaks Animal");
+return 0; }

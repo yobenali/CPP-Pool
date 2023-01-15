@@ -14,6 +14,7 @@ public:
     ~Brain();
 
     std::string const &getIdeas(int i) const;
+    void    setIdea(std::string idea, size_t index);
 };
 
 #endif
