@@ -12,11 +12,6 @@ Animal::Animal(std::string type)
     std::cout << "Constructor called For " << this->type << std::endl;
 }
 
-std::string const &Animal::getType() const
-{
-    return this->type;
-}
-
 Animal::Animal(const Animal &obj)
 {
     *this = obj;
@@ -33,6 +28,11 @@ Animal &Animal::operator=(const Animal &obj)
     this->type = obj.getType();
     std::cout << this->type << "Copy assigment operator called" << std::endl;
     return *this;
+}
+
+std::string const &Animal::getType() const
+{
+    return this->type;
 }
 
 void Animal::makeSound() const

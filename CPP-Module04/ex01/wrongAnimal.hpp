@@ -9,8 +9,8 @@ class WrongAnimal
         std::string type;
     public:
         WrongAnimal();
-        WrongAnimal(const WrongAnimal &copy);
-        WrongAnimal &operator=(const WrongAnimal &copy);
+        WrongAnimal(const WrongAnimal &obj);
+        WrongAnimal &operator=(const WrongAnimal &obj);
         ~WrongAnimal();
 
         std::string const &getType() const;

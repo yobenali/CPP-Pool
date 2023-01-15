@@ -6,11 +6,6 @@ WrongAnimal::WrongAnimal()
     std::cout << "Default Constructor called For " << this->type << std::endl;
 }
 
-std::string const &WrongAnimal::getType() const
-{
-    return this->type;
-}
-
 WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
     *this = obj;
@@ -27,6 +22,11 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj)
     this->type = obj.getType();
     std::cout << "Copy assigment operator called" << std::endl;
     return *this;
+}
+
+std::string const &WrongAnimal::getType() const
+{
+    return this->type;
 }
 
 void WrongAnimal::makeSound() const
