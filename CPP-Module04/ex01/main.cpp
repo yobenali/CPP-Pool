@@ -4,10 +4,17 @@
 
 int main()
 {
-    const Animal* j = new Dog();
+    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
     const Animal* i = new Cat();
-    delete j;//should not create a leak delete i;
+    const Animal* j = new Dog();
+    const Animal* x = j;
+    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
+    i->makeSound();
+    j->makeSound();
+    x->makeSound();
+    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
     delete i;
-    system("leaks Animal");
+    delete j;
+    // system("leaks Animal");
     return 0; 
 }
