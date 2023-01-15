@@ -2,10 +2,14 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+
 int main()
 {
     std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n";
-    const Animal* meta = new Animal();
+    // const Animal* meta = new Animal();
     const Animal* i = new Cat();
     const Animal* j = new Dog();
     const Dog a;
@@ -15,7 +19,7 @@ int main()
     j->makeSound();
     a.makeSound();
     b.makeSound();
-    meta->makeSound();
+    // meta->makeSound();
     std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n";
     delete j;
     delete i;

@@ -20,7 +20,7 @@ std::string const &Animal::getType() const
 Animal::Animal(const Animal &obj)
 {
     *this = obj;
-    std::cout << this->type << "Copy Constructer called" << std::endl;
+    std::cout << "Copy Constructer called" << std::endl;
 }
 
 Animal::~Animal()
@@ -31,7 +31,7 @@ Animal::~Animal()
 Animal &Animal::operator=(const Animal &obj)
 {
     this->type = obj.getType();
-    std::cout << this->type << "Copy assigment operator called" << std::endl;
+    std::cout << "Copy assigment operator called" << std::endl;
     return *this;
 }
 
