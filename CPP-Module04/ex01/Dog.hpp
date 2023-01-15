@@ -13,6 +13,8 @@ public:
     Dog(const Dog &obj);
     Dog &operator=(const Dog &obj);
     ~Dog();
+
+    Brain *getBrain() const;
     void    makeSound(void) const;
 };
 

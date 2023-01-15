@@ -14,6 +14,7 @@ public:
     Cat &operator=(const Cat &obj);
     ~Cat();
   
+    Brain *getBrain() const;
     void    makeSound(void) const;
 };
 

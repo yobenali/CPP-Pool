@@ -2,15 +2,12 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-
 int main()
 {
-    const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl; std::cout << i->getType() << " " << std::endl; 
-    i->makeSound();
-    meta->makeSound();
-
+    delete j;//should not create a leak delete i;
+    delete i;
+    system("leaks Animal");
     return 0; 
-    }
+}
