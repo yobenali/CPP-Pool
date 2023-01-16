@@ -15,7 +15,7 @@ Dog::Dog(const Dog &obj) : DogBrain(NULL)
 
 Dog::~Dog()
 {
-     delete this->DogBrain;
+    delete this->DogBrain;
     std::cout << "Dog Destructor called" << std::endl;
 }
 

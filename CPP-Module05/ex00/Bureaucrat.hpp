@@ -10,24 +10,25 @@ private:
     unsigned int grade;
 public:
     Bureaucrat();
+    Bureaucrat(std::string const name, unsigned int grade);
     Bureaucrat(const Bureaucrat &obj);
     ~Bureaucrat();
     Bureaucrat &operator=(const Bureaucrat &obj);
-    Bureaucrat operator++();
-    Bureaucrat operator--();
+    GradeIncrement();
+    Gradedecrement();
 
-    void    setGrade(unsigned int grade);
-    std::string getName();
+    int    setGrade(unsigned int grade);
+    const std::string getName() const;
     int getGrade();
 
     class GradeTooHighException : public std::exception
     {
-        const char* what() const;
-    }
+        const char* what() const throw();
+    };
     class GradeTooLowException : public std::exception
     {
-        const char* what() const;
-    }
+        const char* what() const throw();
+    };
 };
 
 #endif
