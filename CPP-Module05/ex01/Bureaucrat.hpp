@@ -29,6 +29,7 @@ public:
     {
         const char* what() const throw();
     };
+    void    signForm();
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat &obj);
