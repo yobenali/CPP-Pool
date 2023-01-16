@@ -33,3 +33,11 @@ int Bureaucrat::getGrade()
 {
     return (this->grade);
 }
+
+void    Bureaucrat::setGrade(unsigned int grade)
+{
+    this->grade = grade;
+    if (this->grade > 150)
+        throw
+
+}

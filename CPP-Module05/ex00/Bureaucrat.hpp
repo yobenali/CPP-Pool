@@ -16,8 +16,18 @@ public:
     Bureaucrat operator++();
     Bureaucrat operator--();
 
+    void    setGrade(unsigned int grade);
     std::string getName();
     int getGrade();
+
+    class GradeTooHighException : public std::exception
+    {
+        const char* what() const;
+    }
+    class GradeTooLowException : public std::exception
+    {
+        const char* what() const;
+    }
 };
 
 #endif
