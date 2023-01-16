@@ -28,4 +28,3 @@ std::string Bureaucrat::getName()
 {
     return (this->name);
 }
-
