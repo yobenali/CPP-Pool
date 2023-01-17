@@ -1,11 +1,11 @@
 #include "ShrubberyCreationForm.hpp"
 
-Shrubbery::Shrubbery(std::string target)
+Shrubbery::Shrubbery(std::string target): target(target)
 {
     std::ofstream outFile;
     outFile.open(target + "_shrubbery");
-    outFile << "                  v\n";
-    outFile << "                 >X<\n";
+    outFile << "                 v\n";
+    outFile << "                >X<\n";
     outFile << "                 A\n";
     outFile << "                d$d\n";
     outFile << "              .d\\$$b.\n";
@@ -24,16 +24,17 @@ Shrubbery::Shrubbery(std::string target)
 Shrubbery::Shrubbery(const Shrubbery &obj)
 {
     *this = obj;
-    std::cout << "Shrubbery Copy Constructor" << std::endl;
+    // std::cout << "Shrubbery Copy Constructor" << std::endl;
 }
 
 Shrubbery &Shrubbery::operator=(const Shrubbery &obj)
 {
-    *this = obj;
+    if (this != &obj)
+        this->target = obj.target;
     return (*this);
 }
 
 Shrubbery::~Shrubbery()
 {
-    std::cout << "Default Destructor called" << std::endl;    
+    // std::cout << "Default Destructor called" << std::endl;    
 }

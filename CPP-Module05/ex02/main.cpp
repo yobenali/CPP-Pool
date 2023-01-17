@@ -10,7 +10,7 @@ int main()
     {
         Bureaucrat a = Bureaucrat("hated", 11);
         Form x = Form("Form", 0, 16, 16);
-        Form y = Shrubbery("tree");
+        Form y = Presidential("maryam");
         std::cout << a;
         a.signForm(x);
         a.signForm(y);

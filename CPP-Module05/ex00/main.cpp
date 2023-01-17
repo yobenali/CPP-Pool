@@ -8,7 +8,7 @@ int main()
         a.GradeIncrement();
 
         std::cout << a;
-        Bureaucrat b = Bureaucrat("hated", 15);
+        Bureaucrat b = Bureaucrat("hated", 151);
         std::cout << b ;
     }
     catch(const std::exception& e)

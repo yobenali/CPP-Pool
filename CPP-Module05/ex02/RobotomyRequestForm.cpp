@@ -1,6 +1,6 @@
  #include "RobotomyRequestForm.hpp"
  
-Robotomy::Robotomy(std::string target)
+Robotomy::Robotomy(std::string target): target(target)
 {
     int acc = rand();
     if (acc % 2)
@@ -19,7 +19,8 @@ Robotomy::Robotomy(const Robotomy &obj)
 
 Robotomy &Robotomy::operator=(const Robotomy &obj)
 {
-    *this = obj;
+    if (this != &obj)
+        this->target = obj.target;
     return (*this);
 }
 
