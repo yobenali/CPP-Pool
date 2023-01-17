@@ -33,7 +33,8 @@ public:
     {
         const char* what() const throw();
     };
-    void beSigned(Bureaucrat obj);
+    void beSigned(Bureaucrat const &obj);
+    void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Form &obj);

@@ -27,7 +27,7 @@ Form::~Form()
     std::cout << "Form Destructor" << std::endl;
 }
 
-void    Form::beSigned(Bureaucrat obj)
+void    Form::beSigned(Bureaucrat const &obj)
 {
     if (obj.getGrade() < 1)
         throw GradeTooHighException();
@@ -71,4 +71,20 @@ std::ostream& operator<<(std::ostream& out, const Form &obj)
 {
 	out << "Form " << obj.getName() << " is it signed->" << obj.getSigned() << "\nRequired Grade to sign->" << obj.getSignGrade() << "\nRequired Grade to execute->" << obj.getexecGrade() << std::endl;
 	return (out);
+}
+
+void    Form::execute(Bureaucrat const &executor) const
+{
+    if (this->getSigned())
+    {
+        if (this->getexecGrade() > executor.getGrade())
+            throw GradeTooLowException();
+    }
+    else
+    {
+        if (executor.getGrade() < 1)
+            throw GradeTooHighException();
+        else if (executor.getGrade() > 150)
+            throw GradeTooLowException();
+    }
 }

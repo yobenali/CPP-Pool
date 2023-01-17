@@ -4,6 +4,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -13,6 +15,7 @@ private:
     const int execGrade;
 public:
     Form();
+    Form(std::string const pName, bool pIsSigned, const int pSignGrade, const int pExecGrade);
     Form(const Form &obj);
     Form &operator=(const Form &obj);
     ~Form();

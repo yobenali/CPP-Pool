@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp" 
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
@@ -7,7 +10,7 @@ int main()
     {
         Bureaucrat a = Bureaucrat("hated", 11);
         Form x = Form("Form", 0, 16, 16);
-        Form y = Form();
+        Form y = Shrubbery("tree");
         std::cout << a;
         a.signForm(x);
         a.signForm(y);
