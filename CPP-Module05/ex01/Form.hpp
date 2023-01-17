@@ -2,6 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -24,6 +25,7 @@ public:
     {
         const char* what() const throw();
     };
+    void beSigned(Bureaucrat &obj);
 };
 
 std::ostream& operator<<(std::ostream& out, const Form &obj);
