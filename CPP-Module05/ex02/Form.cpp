@@ -2,29 +2,29 @@
 
 Form::Form(): name("Uknown"), isSigned(0) , signGrade(45), execGrade(45)
 {
-    std::cout << "Form Constructor" << std::endl;
+    // std::cout << "Form Constructor" << std::endl;
 }
 
 Form::Form(std::string const pName, bool pIsSigned, const int pSignGrade, const int pExecGrade): name(pName), isSigned(pIsSigned), signGrade(pSignGrade), execGrade(pExecGrade)
 {
-    std::cout << "parameter Constructer Called" << std::endl;
+    // std::cout << "parameter Constructer Called" << std::endl;
 }
 
 Form::Form(const Form &obj): name(obj.name), isSigned(obj.isSigned), signGrade(obj.signGrade), execGrade(obj.execGrade)
 {
-    std::cout << "Form copy Constructor" << std::endl;
+    // std::cout << "Form copy Constructor" << std::endl;
 }
 
 Form &Form::operator=(const Form &obj)
 {
     this->isSigned = obj.isSigned;
-    std::cout << "Form Assigment operator" << std::endl;
+    // std::cout << "Form Assigment operator" << std::endl;
     return *this;
 }
 
 Form::~Form()
 {
-    std::cout << "Form Destructor" << std::endl;
+    // std::cout << "Form Destructor" << std::endl;
 }
 
 void    Form::beSigned(Bureaucrat const &obj)
@@ -73,12 +73,13 @@ std::ostream& operator<<(std::ostream& out, const Form &obj)
 	return (out);
 }
 
-void    Form::execute(Bureaucrat const &executor) const
+bool    Form::execute(Bureaucrat const &executor) const
 {
     if (this->getSigned())
     {
         if (this->getexecGrade() > executor.getGrade())
             throw GradeTooLowException();
+        return false;
     }
     else
     {
@@ -86,5 +87,7 @@ void    Form::execute(Bureaucrat const &executor) const
             throw GradeTooHighException();
         else if (executor.getGrade() > 150)
             throw GradeTooLowException();
+        return false;
     }
+    return true;
 }

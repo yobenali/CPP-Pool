@@ -14,6 +14,7 @@ int main()
         std::cout << a;
         a.signForm(x);
         a.signForm(y);
+        a.executeForm(y);
         Bureaucrat b = Bureaucrat("hated", 15);
         std::cout << b ;
     }

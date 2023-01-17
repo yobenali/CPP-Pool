@@ -4,15 +4,15 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
-class Shrubbery : public Form
+class ShrubberyCreationForm : public Form
 {
 private:
     std::string target;
 public:
-    Shrubbery(std::string target);
-    Shrubbery(const Shrubbery &obj);
-    Shrubbery &operator=(const Shrubbery &obj);
-    ~Shrubbery();
-    int s;
+    ShrubberyCreationForm(std::string target);
+    ShrubberyCreationForm(const ShrubberyCreationForm &obj);
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
+    ~ShrubberyCreationForm();
+    void execute(ShrubberyCreationForm const & executor) const;
 };
 #endif

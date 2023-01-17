@@ -34,7 +34,7 @@ public:
         const char* what() const throw();
     };
     void beSigned(Bureaucrat const &obj);
-    void execute(Bureaucrat const & executor) const;
+    virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const Form &obj);
