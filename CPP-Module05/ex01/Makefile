@@ -1,10 +1,10 @@
 NAME = Bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 

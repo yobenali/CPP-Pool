@@ -5,6 +5,8 @@ int main()
     try
     {
         Bureaucrat a = Bureaucrat("hated", 11);
+        a.GradeIncrement();
+
         std::cout << a;
         Bureaucrat b = Bureaucrat("hated", 15);
         std::cout << b ;

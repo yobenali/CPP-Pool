@@ -45,12 +45,12 @@ int Bureaucrat::setGrade(unsigned int grade)
 
 void    Bureaucrat::GradeDecrement()
 {
-    setGrade(this->grade + 1);
+    setGrade(this->grade++);
 }
 
 void    Bureaucrat::GradeIncrement()
 {
-    setGrade(this->grade - 1);
+    setGrade(this->grade--);
 }
 
 int Bureaucrat::getGrade() const

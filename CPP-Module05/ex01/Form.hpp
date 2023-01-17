@@ -7,7 +7,7 @@
 class Form
 {
 private:
-    const std::string name;
+    std::string const name;
     bool    isSigned;
     const int signGrade;
     const int execGrade;
@@ -16,6 +16,11 @@ public:
     Form(const Form &obj);
     Form &operator=(const Form &obj);
     ~Form();
+
+    std::string getName() const;
+    bool    getSigned() const;
+    int getSignGrade() const;
+    int getexecGrade() const;
 
     class GradeTooHighException : public std::exception
     {
