@@ -20,7 +20,7 @@ public:
     void GradeIncrement();
     void GradeDecrement();
 
-    int    setGrade(unsigned int grade);
+    void    checkGrade(unsigned int grade);
     std::string getName() const;
     int getGrade() const;
 

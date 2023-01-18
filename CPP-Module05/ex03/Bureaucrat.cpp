@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(): name("laarbi"), grade(1)
 {
@@ -49,7 +50,7 @@ void Bureaucrat::checkGrade(unsigned int grade)
 
 void    Bureaucrat::GradeDecrement()
 {
-    checkGrade(grade + 1);
+    checkGrade(this->grade + 1);
 }
 
 void    Bureaucrat::GradeIncrement()
@@ -76,4 +77,27 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat &obj)
 {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
 	return (out);
+}
+
+void Bureaucrat::signForm(Form &obj)
+{
+    obj.beSigned(*this);
+    if (obj.getSigned())
+        std::cout << this->name << " signed " << obj.getName() << std::endl;
+    else
+        std::cout << this->name << " couldn't sign " << obj.getName() << " because :" << obj << std::endl;
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }

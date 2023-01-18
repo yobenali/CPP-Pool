@@ -29,10 +29,12 @@ Form::~Form()
 
 void    Form::beSigned(Bureaucrat const &obj)
 {
-    if (obj.getGrade() <= this->signGrade)
+    if (obj.getGrade() < 1)
+        throw GradeTooHighException();
+    else if (obj.getGrade() > 150)
+        throw GradeTooLowException();
+    else if (obj.getGrade() <= this->signGrade)
         this->isSigned = 1;
-    else
-        throw GradeTooLowException(); 
 }
 
 std::string Form::getName() const

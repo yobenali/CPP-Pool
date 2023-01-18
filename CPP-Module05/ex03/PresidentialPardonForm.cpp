@@ -37,13 +37,13 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
     std::cout << "The " << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
-std::string PresidentialPardonForm::getTarget() const
+std::string PresidentialPardonForm::getTarget()
 {
     return this->target;
 }
 
 std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm  &obj)
 {
-    out << "Form " << obj.getName() << std::endl;
+    out << "Form" << obj.getName();
     return (out);
 }

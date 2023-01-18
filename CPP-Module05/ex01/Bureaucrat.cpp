@@ -8,11 +8,15 @@ Bureaucrat::Bureaucrat(): name("laarbi"), grade(1)
 
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade): name(name)
 {
-    this->grade = setGrade(grade);
+    if (grade > 150)
+        throw GradeTooLowException();
+    else if (grade < 1)
+        throw GradeTooHighException();
+    this->grade = grade;
     // std::cout << "Bureaucrat Constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.name)
 {
     *this = obj;
     std::cout << "Bureaucrat Copy Constructor called" << std::endl;
@@ -35,23 +39,23 @@ std::string Bureaucrat::getName() const
     return (this->name);
 }
 
-int Bureaucrat::setGrade(unsigned int grade)
+void Bureaucrat::checkGrade(unsigned int grade)
 {
     if (grade > 150)
         throw GradeTooLowException();
     else if (grade < 1)
         throw GradeTooHighException();
-    return (grade);
+    this->grade = grade;
 }
 
 void    Bureaucrat::GradeDecrement()
 {
-    setGrade(this->grade + 1);
+    checkGrade(this->grade + 1);
 }
 
 void    Bureaucrat::GradeIncrement()
 {
-    setGrade(this->grade - 1);
+    checkGrade(this->grade - 1);
 }
 
 int Bureaucrat::getGrade() const
@@ -81,5 +85,5 @@ void Bureaucrat::signForm(Form &obj)
     if (obj.getSigned())
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     else
-        std::cout << this->name << " couldn't sign " << obj.getName() << " because " << obj << std::endl;
+        std::cout << this->name << " couldn't sign " << obj.getName() << " because :" << obj << std::endl;
 }

@@ -8,15 +8,18 @@ int main()
 {
     try
     {
-        Bureaucrat a = Bureaucrat("hated", 11);
-        Form x = Form("Form", 0, 16, 16);
-        Form y = Presidential("maryam");
+        Bureaucrat a = Bureaucrat("hated", 1);
+        RobotomyRequestForm y = RobotomyRequestForm("test");
+        ShrubberyCreationForm x = ShrubberyCreationForm("xxxxx");
+        PresidentialPardonForm z = PresidentialPardonForm("zzzzzz");
+
         std::cout << a;
         a.signForm(x);
-        a.signForm(y);
+        // a.signForm(y);
+        a.signForm(z);
+        a.executeForm(x);
         a.executeForm(y);
-        Bureaucrat b = Bureaucrat("hated", 15);
-        std::cout << b ;
+        a.executeForm(z);
     }
     catch(const std::exception& e)
     {
