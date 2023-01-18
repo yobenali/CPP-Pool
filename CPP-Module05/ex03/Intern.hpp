@@ -20,7 +20,7 @@ public:
     {
         const char* what() const throw();
     };
-    Form *makeForm(const std::string name, const std::string target);
+    Form *makeForm(const std::string name, const std::string target) const;
 };
 
 #endif

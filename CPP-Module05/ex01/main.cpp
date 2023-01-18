@@ -6,7 +6,7 @@ int main()
     try
     {
         Bureaucrat a = Bureaucrat("hated", 100);
-        Form x = Form("Form", 0, 16, 16);
+        Form x = Form("Form", 0, 0, 0);
         Form y = Form();
         std::cout << a;
         a.signForm(x);

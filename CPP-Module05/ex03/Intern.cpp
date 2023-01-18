@@ -27,7 +27,7 @@ Intern::~Intern()
     std::cout << "Intern Destructor called" << std::endl;
 }
 
-Form* Intern::makeForm(const std::string name, const std::string target)
+Form* Intern::makeForm(const std::string name, const std::string target) const
 {
     int x = -1;
     std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};

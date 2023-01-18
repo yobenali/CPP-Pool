@@ -7,6 +7,10 @@ Form::Form(): name("Uknown"), isSigned(0) , signGrade(45), execGrade(45)
 
 Form::Form(std::string const pName, bool pIsSigned, const int pSignGrade, const int pExecGrade): name(pName), isSigned(pIsSigned), signGrade(pSignGrade), execGrade(pExecGrade)
 {
+    if (this->getSignGrade() < 1 || this->getexecGrade() < 1)
+        throw GradeTooHighException();
+    else if (this->getSignGrade() > 150 || this->getexecGrade() > 150)
+        throw GradeTooLowException();
     // std::cout << "Form Constructer Called" << std::endl;
 }
 

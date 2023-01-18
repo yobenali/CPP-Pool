@@ -1,5 +1,11 @@
 #include <iostream>
 
+
+Class Data
+{
+    
+};
+
 uintptr_t serialize(Data* ptr)
 {
 
