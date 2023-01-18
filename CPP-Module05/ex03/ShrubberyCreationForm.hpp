@@ -9,13 +9,13 @@ class ShrubberyCreationForm : public Form
 private:
     std::string target;
 public:
-    ShrubberyCreationForm() : target("ghh") {}
+    ShrubberyCreationForm();
     ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm &obj);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
     ~ShrubberyCreationForm();
 
-    std::string getTarget();
+    std::string getTarget() const;
     void execute(Bureaucrat const & executor) const;
 };
 

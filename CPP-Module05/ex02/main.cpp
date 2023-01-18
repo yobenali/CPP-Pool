@@ -8,14 +8,14 @@ int main()
 {
     try
     {
-        Bureaucrat a = Bureaucrat("hated", 1);
+        Bureaucrat a = Bureaucrat("hated", 30);
         RobotomyRequestForm y = RobotomyRequestForm("test");
         ShrubberyCreationForm x = ShrubberyCreationForm("xxxxx");
         PresidentialPardonForm z = PresidentialPardonForm("zzzzzz");
 
         std::cout << a;
         a.signForm(x);
-        // a.signForm(y);
+        a.signForm(y);
         a.signForm(z);
         a.executeForm(x);
         a.executeForm(y);

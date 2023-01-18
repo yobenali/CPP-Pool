@@ -29,7 +29,7 @@ int main()
     { 
         Intern someRandomIntern;
         Form* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        rrf = someRandomIntern.makeForm("robotoy request", "Bender");
     }
     catch(const std::exception& e)
     {
