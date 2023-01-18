@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat(): name("laarbi"), grade(1)
 {
-    std::cout << "Bureaucrat Constructor called" << std::endl;
+    std::cout << "Default Constructor called For Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade): name(name)
@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade): name(name)
     else if (grade < 1)
         throw GradeTooHighException();
     this->grade = grade;
-    // std::cout << "Bureaucrat Constructor called" << std::endl;
+    std::cout << "Bureaucrat Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.name)

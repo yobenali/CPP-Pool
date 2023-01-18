@@ -2,12 +2,12 @@
 
 Form::Form(): name("Uknown"), isSigned(0) , signGrade(45), execGrade(45)
 {
-    // std::cout << "Form Constructor" << std::endl;
+    // std::cout << "Default Form Constructor" << std::endl;
 }
 
 Form::Form(std::string const pName, bool pIsSigned, const int pSignGrade, const int pExecGrade): name(pName), isSigned(pIsSigned), signGrade(pSignGrade), execGrade(pExecGrade)
 {
-    // std::cout << "parameter Constructer Called" << std::endl;
+    // std::cout << "Form Constructer Called" << std::endl;
 }
 
 Form::Form(const Form &obj): name(obj.name), isSigned(obj.isSigned), signGrade(obj.signGrade), execGrade(obj.execGrade)

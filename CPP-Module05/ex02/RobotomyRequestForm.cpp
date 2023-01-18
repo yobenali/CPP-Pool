@@ -46,7 +46,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         std::cout << "The " << target << " has been failed :(" << std::endl;
 }
 
-std::string RobotomyRequestForm::getTarget()
+std::string RobotomyRequestForm::getTarget() const
 {
     return this->target;
 }

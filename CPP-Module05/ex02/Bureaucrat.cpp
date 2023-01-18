@@ -3,7 +3,7 @@
 
 Bureaucrat::Bureaucrat(): name("laarbi"), grade(1)
 {
-    std::cout << "Bureaucrat Constructor called" << std::endl;
+    // std::cout << "Default Constructor called Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, unsigned int grade): name(name)
@@ -19,18 +19,18 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade): name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.name)
 {
     *this = obj;
-    std::cout << "Bureaucrat Copy Constructor called" << std::endl;
+    // std::cout << "Bureaucrat Copy Constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat Destructor called" << std::endl;
+    // std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     this->grade = obj.grade;
-    std::cout << "Bureaucrat Assigment operator called" << std::endl;
+    // std::cout << "Bureaucrat Assigment operator called" << std::endl;
     return *this;
 }
 
