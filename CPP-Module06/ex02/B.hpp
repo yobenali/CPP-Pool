@@ -5,11 +5,6 @@
 
 class B: public Base
 {
-public:
-    ~B();
-    Base * generate(void);
-    void identify(Base* p);
-    void identify(Base& p);
 };
 
 #endif
