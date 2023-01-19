@@ -29,5 +29,5 @@ int main()
     std::cout << "float type : " << b->f << std::endl; 
     std::cout << "string type : " << b->str << std::endl; 
 
-    return (0);    
+    return (0);
 }

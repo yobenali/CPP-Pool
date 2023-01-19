@@ -62,10 +62,10 @@ Form* Intern::makeForm(const std::string name, const std::string target) const
 
 const char *Intern::GradeTooHighException::what() const throw()
 {
-    return "Grade is too High";
+    return "Intern: Grade is too High";
 }
 
 const char *Intern::GradeTooLowException::what() const throw()
 {
-    return "Grade is too Low";
+    return "Intern: Grade is too Low";
 }

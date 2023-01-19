@@ -28,36 +28,35 @@ Base *generate(void)
 
 void identify(Base* p)
 {
-    try
-    {
-        if (dynamic_cast<A*> (p))
-            std::cout << "A" << std::endl;
-        if (dynamic_cast<B*> (p))
-            std::cout << "B" << std::endl;
-        if (dynamic_cast<C*> (p))
-            std::cout << "C" << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (dynamic_cast<A*> (p))
+        std::cout << "A" << std::endl;
+    if (dynamic_cast<B*> (p))
+        std::cout << "B" << std::endl;
+    if (dynamic_cast<C*> (p))
+        std::cout << "C" << std::endl;
 }
 
 void identify(Base& p)
 {
-    try
-    {
-        if (dynamic_cast<A*> (&p))
-            std::cout << "A" << std::endl;
-        if (dynamic_cast<B*> (&p))
-            std::cout << "B" << std::endl;
-        if (dynamic_cast<C*> (&p))
-            std::cout << "C" << std::endl;
+    Base    b;
+
+    try {
+        b = dynamic_cast<A&> (p);
+        std::cout << "A" << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    } 
+    catch(const std::exception& e) {}
+
+    try {
+        b = dynamic_cast<B&> (p);
+        std::cout << "B" << std::endl;
+    }
+    catch(const std::exception& e) {}
+ 
+    try {
+        b = dynamic_cast<C&> (p);
+        std::cout << "C" << std::endl;
+    }
+    catch(const std::exception& e) {} 
 }
 
 int main(void)
@@ -67,7 +66,7 @@ int main(void)
 
     srand(time(NULL));
     stPtr = generate();
-    scPtr = generate();    
+    scPtr = generate();
 
 
     std::cout << "POINTER\n";

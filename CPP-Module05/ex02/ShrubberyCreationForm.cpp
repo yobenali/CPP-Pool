@@ -36,7 +36,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     {
         if (executor.getGrade() < 1)
             throw GradeTooHighException();
-        else if (executor.getGrade() > 150)
+        else if (executor.getGrade() > 150 || executor.getGrade() > this->getexecGrade())
             throw GradeTooLowException();
     }
     std::ofstream outFile;

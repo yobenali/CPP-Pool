@@ -61,12 +61,12 @@ int    Form::getexecGrade() const
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-    return "Grade is too High";
+    return "Form: Grade is too High";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return "Grade is too Low";
+    return "Form: Grade is too Low";
 }
 
 std::ostream& operator<<(std::ostream& out, const Form &obj)
