@@ -17,7 +17,7 @@ T::iterator easyfind(T &container, int 	index)
 
 class IteratorNotFound : public std::GradeTooLowException{
     const char *what() const throw(){
-        return "Index Out of vector range";
+        return "Index Out of vector range v.end()";
     }
 }
 
