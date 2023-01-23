@@ -1,23 +1,29 @@
-#include <EasyFind.hpp>
+#include "EasyFind.hpp"
 
 int main(void)
 {
-    std::vector<int> tab = {1, 3, 5, 7, 8, 9, 1337, 42};
+    std::vector<int> tab;
     std::vector<int>::iterator it;
 
-    for (it = tab.begin(); it != tab.end(), it++)
+    tab.push_back(1);
+    tab.push_back(2);
+    tab.push_back(3);
+    tab.push_back(13);
+    tab.push_back(14);
+    tab.push_back(17);
+    for (it = tab.begin(); it != tab.end(); it++)
     {
-        std::cout << "vout :" << *it << std::endl; 
+        std::cout << "vector out :" << *it << std::endl; 
     }
 
     try
     {
-        std::cout << *easyfind(tab, 1337) << std::endl;
+        std::cout << *easyfind(tab, 13) << std::endl;
         std::cout << *easyfind(tab, 6) << std::endl;
     }
-    catch  (std::execption &e)
+    catch  (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
-    retuen 0;
+    return 0;
 }

@@ -14,7 +14,7 @@ Span::Span(const Span &obj){
 }
 
 Span &Span::operator=(Span const &obj){
-    if(this != obj)
+    if(this != &obj)
     {
         this->N = obj.getNb();
         this->V = obj.getData();
@@ -25,38 +25,38 @@ Span &Span::operator=(Span const &obj){
 Span::~Span(){
 }
 
-unsigned int getNb() const{
+unsigned int Span::getNb() const{
     return this->N;
 }
 
-std::vector<int> &Span::getData() const{
+std::vector<int> Span::getData() const{
     return this->V;
 }
 
 void Span::addNumber(int nb){
-    if (V.getNb() >= this->N)
+    if (V.size() >= this->N)
         throw StoredException();
     V.push_back(nb);
 }
 
-void Span::addNumber(std::vector<int>::iterator const &start, std::vector<int> const &end){
-    unsigned int dis = std::distance(start, end);
+void Span::addNumber(std::vector<int>::iterator &start, std::vector<int>::iterator &end){
+    unsigned  int dis = std::distance(start, end);
     if (dis > this->N)
         throw StoredException();
     V.insert(V.end(), start, end);
 }
 
 int Span::shortestSpan() const{
-    if(V.getNb() < 2)
+    if(V.size() < 2)
         throw SpanNotFoundException();
-    std::vector<int> tmp = V.getData();
-    std::sort(tmp.begin(), tmp,end());
+    std::vector<int> tmp = V;
+    std::sort(tmp.begin(), tmp.end());
     std::vector<int>::iterator p_it = tmp.begin();
-    std::vector<int>::iterator n_it = ++tmp.end();
+    std::vector<int>::iterator n_it = ++tmp.begin();
     int sSpan = *n_it - *p_it;
     while(n_it != tmp.end())
     {
-        if (*n_it - p_it < sSpan)
+        if (*n_it - *p_it < sSpan)
             sSpan = *n_it - *p_it;
         p_it = n_it;
         n_it++;
@@ -65,9 +65,9 @@ int Span::shortestSpan() const{
 }
 
 int Span::longestSpan() const{
-    if(V.getNb() < 2)
+    if(V.size() < 2)
         throw SpanNotFoundException();
-    std::vector<int> tmp = V.getData();
-    std::sort(tmp.begin(), tmp,end());
+    std::vector<int> tmp = V;
+    std::sort(tmp.begin(), tmp.end());
     return (tmp.back() - tmp.front());
 }

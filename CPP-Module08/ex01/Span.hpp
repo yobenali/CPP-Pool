@@ -3,12 +3,13 @@
 
 # include <iostream>
 # include <vector>
-
+# include <iterator>
+# include <algorithm>
 
 class Span
 {
     private:
-        unsigned int int N;
+        unsigned int N;
         std::vector<int> V;
     public:
         Span();
@@ -18,8 +19,9 @@ class Span
         ~Span();
 
         unsigned int getNb() const;
-        std::vector<int> &getData() const;
+        std::vector<int> getData() const;
         void addNumber(int nb);
+        void addNumber(std::vector<int>::iterator &start, std::vector<int>::iterator &end);
         int shortestSpan() const;
         int longestSpan() const;
 
@@ -27,13 +29,13 @@ class Span
             const char *what() const throw(){
                 return "vector full";
             }
-        }
+        };
 
         class SpanNotFoundException : public std::exception{
             const char *what() const throw(){
                 return "No Span can be found";
             }
-        }
-}
+        };
+};
 
 #endif
