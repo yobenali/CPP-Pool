@@ -39,11 +39,11 @@ void Span::addNumber(int nb){
     V.push_back(nb);
 }
 
-void Span::addNumber(std::vector<int>::iterator &start, std::vector<int>::iterator &end){
-    unsigned  int dis = std::distance(start, end);
-    if (dis > this->N)
+void Span::addNumbers(unsigned int dis){
+    if (dis >= this->N)
         throw StoredException();
-    V.insert(V.end(), start, end);
+    for (unsigned int i = 0; i < dis; i++)
+        V.push_back(rand());
 }
 
 int Span::shortestSpan() const{

@@ -21,7 +21,7 @@ class Span
         unsigned int getNb() const;
         std::vector<int> getData() const;
         void addNumber(int nb);
-        void addNumber(std::vector<int>::iterator &start, std::vector<int>::iterator &end);
+        void addNumbers(unsigned int dis);
         int shortestSpan() const;
         int longestSpan() const;
 

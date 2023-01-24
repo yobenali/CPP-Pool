@@ -2,6 +2,7 @@
 
 int main()
 {
+    srand(time(NULL));
     Span sp = Span(5);
 
     sp.addNumber(6);
@@ -40,10 +41,15 @@ int main()
         std::cerr << e.what() << '\n';
     }
     tt = Span(500);
-    std::vector<int> V;
-    for (int i = 0; i < 500; i++)
-        V.push_back(i + 1);
-    tt.addNumber(V.begin(), V.end());
-
+    tt.addNumbers(460);
+    try
+    {
+        std::cout << tt.longestSpan() << std::endl;
+        std::cout << tt.shortestSpan() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     return 0;
 }
