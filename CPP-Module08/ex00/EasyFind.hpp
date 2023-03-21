@@ -12,7 +12,7 @@ class IteratorNotFound : public std::exception{
 };
 
 template <typename T>
-typename T::iterator easyfind(T &container, int 	index)
+typename T::iterator easyfind(T &container, int index)
 {
     typename T::iterator it = find(container.begin(), container.end(), index);
     if(it == container.end())

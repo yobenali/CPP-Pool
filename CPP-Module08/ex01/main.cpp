@@ -26,10 +26,10 @@ int main()
         std::cerr << e.what() << '\n';
     }
 
-    tt = Span(10000);
+    tt = Span(15000);
     try
     {
-        for (int i = 0; i < 10000; i++)
+        for (int i = 0; i < 15000; i++)
         {
             tt.addNumber(i + 1);
         }
@@ -40,10 +40,11 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    tt = Span(500);
-    tt.addNumbers(460);
+
+    tt = Span(400);
     try
     {
+        tt.addNumbers(460);
         std::cout << tt.longestSpan() << std::endl;
         std::cout << tt.shortestSpan() << std::endl;
     }
