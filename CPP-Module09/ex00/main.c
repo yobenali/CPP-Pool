@@ -10,4 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange(void)
+{
+	std::cout << "Default Constructer called" << std::endl;
+}
