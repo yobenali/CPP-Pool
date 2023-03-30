@@ -10,30 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#include "BitcoineExchange.hpp"
 
-# include <iostream>
-# include <fstream>
-# include <map>
-
-class BitcoinExchange
+BitcoinExchange::BitcoinExchange(void)
 {
-	private:
-	        std::map<std::string, float>;
-	        bool validOrNot(const std::string &date) const;
-	public:
-	        BitcoinExchange(void);
-	        BitcoinExchange(const std::string &file);
-	        BitcoinExchange(const BitcoinExchange &obj);
-	        virtual ~BitcoinExchange(void);
-
-	        BitcoinExchange &operator=(const BitcoinExchange &obj)
-	        float getBitcoinExchange(const std::string &date, float value) const;
-	protected:
-
-
-
-};
-std::ostream &operator<<(std::ostream &out, const BitcoinExchange &i);
-
+	std::cout << "Default Constructer called" << std::endl;
+}

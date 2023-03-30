@@ -12,7 +12,21 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(void)
+int	main(int ac, char **av)
 {
-	std::cout << "Default Constructer called" << std::endl;
+	if (ac == 2)
+	{
+		std::ifstream fileData(av[1]);
+		if (!fileData.is_open())
+		{
+			std::cerr << "Error file failed to open" << std::endl;
+			return (1);
+		}
+		BitcoinExchange data("data.csv");
+		std::string 	str;
+		while (std::getline(fileData, str))
+		{
+						
+		}
+	}
 }
