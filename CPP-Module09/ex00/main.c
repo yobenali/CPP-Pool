@@ -26,7 +26,13 @@ int	main(int ac, char **av)
 		std::string 	str;
 		while (std::getline(fileData, str))
 		{
-						
+			std::string oStr;
+			std::stringstream oValue(str);
+			float value;
+			if (std::getline(oValue, oStr, '|'))
+			{
+				
+			}
 		}
 	}
 }
