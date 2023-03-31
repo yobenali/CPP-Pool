@@ -14,5 +14,37 @@
 
 BitcoinExchange::BitcoinExchange(void)
 {
-	std::cout << "Default Constructer called" << std::endl;
+	std::cout << "Default Constructor called" << std::endl;
+}
+
+BitcoinExchange::BitcoinExchange(const std::string &file)
+{
+	std::ifstream buff(file);
+	if (!file.is_open())
+		throw fileError();
+	std::string str;
+	while (std::getline(buff, str))
+	{
+		std::string dataStr;
+		std::stringstream ss(str);
+		float value;
+	}
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
+{
+	if (*this != obj)
+		*this = obj;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+	if (*this != obj)
+		*this = obj;
+	return (*this);
+}
+
+BitcoinExchange::~BitcoinExchange(void)
+{
+	std::cout << "Default Destructor called" << std::endl;
 }

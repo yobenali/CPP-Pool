@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		std::ifstream fileData(av[1]);
+		std::ifstream file(av[1]);
 		if (!fileData.is_open())
 		{
 			std::cerr << "Error file failed to open" << std::endl;
@@ -24,15 +24,29 @@ int	main(int ac, char **av)
 		}
 		BitcoinExchange data("data.csv");
 		std::string 	str;
-		while (std::getline(fileData, str))
+		while (std::getline(file, str))
 		{
-			std::string oStr;
-			std::stringstream oValue(str);
+			std::string dateStr;
+			std::stringstream ss(str);
 			float value;
-			if (std::getline(oValue, oStr, '|'))
+			if (std::getline(ss, dateStr, '|'))
 			{
-				
+				try
+				{
+					float exchange = data.getBitcoinExchange(dataStr, value);
+					float r = value * exchange;
+					std::cout << dateStr << " => " << value << " = " << r << std::endl;
+				}
+				catch (const std::exception &e)
+				{
+					std::cerr << e.what() << std::endl;
+				}
 			}
+			else
+				std::cerr << "Error invalide data => " << str << std::endl;
 		}
+		else
+			std::cerr << "Error args" << std::endl;
 	}
+	return (0);
 }
