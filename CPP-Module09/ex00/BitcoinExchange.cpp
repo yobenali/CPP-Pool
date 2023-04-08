@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yobenali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:39 by yobenali          #+#    #+#             */
-/*   Updated: 2023/03/21 23:55:41 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/08 21:14:41 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoineExchange.hpp"
+#include "BitcoinExchange.hpp"
+#include <string>
 
 BitcoinExchange::BitcoinExchange(void)
 {
@@ -20,8 +21,8 @@ BitcoinExchange::BitcoinExchange(void)
 BitcoinExchange::BitcoinExchange(const std::string &file)
 {
 	std::ifstream buff(file);
-	if (!file.is_open())
-		throw fileError();
+	if (!buff.is_open())
+		std::cerr << "Error: could not open file." << std::endl;
 	std::string str;
 	while (std::getline(buff, str))
 	{
@@ -41,7 +42,6 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
 	if (*this != obj)
 		*this = obj;
-	return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange(void)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yobenali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/03/21 23:55:59 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:49:29 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		std::ifstream file(av[1]);
-		if (!fileData.is_open())
+		if (!file.is_open())
 		{
 			std::cerr << "Error file failed to open" << std::endl;
 			return (1);

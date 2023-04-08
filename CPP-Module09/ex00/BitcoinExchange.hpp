@@ -1,5 +1,3 @@
-
-
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
@@ -10,7 +8,7 @@
 class BitcoinExchange
 {
 	private:
-	        std::map<std::string, float>;
+	        std::map<std::string, float> dataMAp;
 	        bool validOrNot(const std::string &date) const;
 	public:
 	        BitcoinExchange(void);
@@ -18,11 +16,7 @@ class BitcoinExchange
 	        BitcoinExchange(const BitcoinExchange &obj);
 	        virtual ~BitcoinExchange(void);
 
-	        BitcoinExchange &operator=(const BitcoinExchange &obj)
+	        BitcoinExchange &operator=(const BitcoinExchange &obj);
 	        float getBitcoinExchange(const std::string &date, float value) const;
-	protected:
-
-
-
 };
 std::ostream &operator<<(std::ostream &out, const BitcoinExchange &i);
