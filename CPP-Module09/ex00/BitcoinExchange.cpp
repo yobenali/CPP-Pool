@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:39 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/08 21:14:41 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/08 23:16:54 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 BitcoinExchange::BitcoinExchange(void)
 {
 	std::cout << "Default Constructor called" << std::endl;
+}
+
+bool	BitcoinExchange::validOrNot(const std::string &date) const
+{
+	int year, month, day;
 }
 
 BitcoinExchange::BitcoinExchange(const std::string &file)
@@ -29,6 +34,10 @@ BitcoinExchange::BitcoinExchange(const std::string &file)
 		std::string dataStr;
 		std::stringstream ss(str);
 		float value;
+		if (std::getline(ss, dataStr, ','))
+		{
+			validOrNot(dataStr);
+		}
 	}
 }
 
