@@ -4,13 +4,12 @@
 # include <iostream>
 # include <fstream>
 # include <sstream>
+# include <cstdlib>
 # include <string>
 # include <map>
 
 class BitcoinExchange
 {
-	private:
-	        
 	public:
 	        BitcoinExchange(void);
 	        BitcoinExchange(const std::string &file);
