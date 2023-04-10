@@ -3,13 +3,14 @@
 
 # include <iostream>
 # include <fstream>
+# include <sstream>
+# include <string>
 # include <map>
 
 class BitcoinExchange
 {
 	private:
-	        std::map<std::string, float> dataMAp;
-	        bool validOrNot(const std::string &date) const;
+	        
 	public:
 	        BitcoinExchange(void);
 	        BitcoinExchange(const std::string &file);
@@ -20,3 +21,5 @@ class BitcoinExchange
 	        float getBitcoinExchange(const std::string &date, float value) const;
 };
 std::ostream &operator<<(std::ostream &out, const BitcoinExchange &i);
+
+#endif
