@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/11 18:55:05 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:01:51 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	main(int ac, char **av)
 		}
 		checkDataFile("data.csv", dataMap);
 		std::string 	str;
+		std::getline(file, str);
 		while (std::getline(file, str))
 		{
 			std::string dateStr;
