@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/10 02:09:06 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/11 01:44:29 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,29 @@
 bool validOrNot(const std::string &date, float value)
 {
 	int  year, month, day;
-	std::istringstream ss(date);
-	std::string sep;
-	std::string ws;
+	char sep;
+	std::stringstream ss(date);
 	ss >> year >> sep >> month >> sep >> day;
-	std::cout << "year : " << year << "month : " << month << "day : " << day << std::endl;
+	if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31)
+	{
+		std::cerr << "Error: invalid date => " << date << std::endl;
+		return(false);
+	}
+	if (month == 2 && day > 29)
+	{
+		std::cerr << "Error: invalid date => " << date << std::endl;
+		return(false);
+	}
 	if (value < 0)
+	{
 		std::cerr << "Error: not a positive number." << std::endl;
+		return(false);
+	}
 	else if (value > 1000)
+	{
 		std::cerr << "Error: too large a number." << std::endl;
+		return(false);
+	}
 	return (true);
 }
 
@@ -33,6 +47,7 @@ void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp
 	if (!buff.is_open())
 		std::cerr << "Error: could not open file." << std::endl;
 	std::string str;
+	std::getline(buff, str);
 	while (std::getline(buff, str))
 	{
 		std::string dateStr;
@@ -43,6 +58,17 @@ void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp
 		dataMAp[dateStr] = value;
 		// std::cout << "value :" << value << " ____________ " << "date :" << dateStr << std::endl;
 	}
+}
+
+float	exchange(std::string dateStr, float value, std::map<std::string, float> dataMAp)
+{
+	float calc;
+	
+	if (dataMAp[dateStr] && dataMAp[dateStr] != dataMAp.end())
+	{
+		
+	}
+	
 }
 
 int	main(int ac, char **av)
@@ -68,14 +94,14 @@ int	main(int ac, char **av)
 				std::cout << dateStr << std::endl;
 				if (validOrNot(dateStr, value))
 				{
-					// float exchange = data.getBitcoinExchange(dateStr, value);
+					float exchangeRate = exchange(dateStr, value, dataMap);
 		 			// float r = value * exchange;
 					// std::cout << dateStr << " => " << value << " = " << r << std::endl;
 					// std::cout << "IN SHIT HERE WE GOO AGAIN" << std::endl; 
 				}
 			}
 			else
-				std::cerr << "Error invalide data => " << str << std::endl;
+				std::cerr << "Error: bad input => " << str << std::endl;
 		}
 	}
 	else
