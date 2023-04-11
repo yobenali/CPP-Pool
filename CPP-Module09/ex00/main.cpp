@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/11 01:44:29 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/11 17:57:25 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ bool validOrNot(const std::string &date, float value)
 	{
 		std::cerr << "Error: invalid date => " << date << std::endl;
 		return(false);
+	}
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+	{
+		std::cerr << "Error: invalid date => " << date << std::endl;
+		return(false);	
 	}
 	if (month == 2 && day > 29)
 	{
@@ -62,12 +67,6 @@ void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp
 
 float	exchange(std::string dateStr, float value, std::map<std::string, float> dataMAp)
 {
-	float calc;
-	
-	if (dataMAp[dateStr] && dataMAp[dateStr] != dataMAp.end())
-	{
-		
-	}
 	
 }
 
