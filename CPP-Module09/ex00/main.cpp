@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/11 17:57:25 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:55:05 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,21 @@ void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp
 		std::getline(ss, dateStr, ',');
 		ss >> value;
 		dataMAp[dateStr] = value;
-		// std::cout << "value :" << value << " ____________ " << "date :" << dateStr << std::endl;
 	}
 }
 
-float	exchange(std::string dateStr, float value, std::map<std::string, float> dataMAp)
+void	exchange(std::string date, std::map<std::string, float> dataMAp)
 {
-	
+	std::map<std::string, float>::iterator it = dataMAp.find(date);
+
+	it = dataMAp.begin();
+	while (it != dataMAp.end())
+	{
+		std::cout << it->second << std::endl;
+		it++;
+	}
+
+
 }
 
 int	main(int ac, char **av)
@@ -90,11 +98,12 @@ int	main(int ac, char **av)
 			float value;
 			if (std::getline(ss, dateStr, '|') && ss >> value)
 			{
-				std::cout << dateStr << std::endl;
+				// std::cout << dateStr << std::endl;
 				if (validOrNot(dateStr, value))
 				{
-					float exchangeRate = exchange(dateStr, value, dataMap);
-		 			// float r = value * exchange;
+					std::cout << dataMap[dateStr] << std::endl;
+					exchange(dateStr, dataMap);
+		 			// float r = value * exchangeRate;
 					// std::cout << dateStr << " => " << value << " = " << r << std::endl;
 					// std::cout << "IN SHIT HERE WE GOO AGAIN" << std::endl; 
 				}
