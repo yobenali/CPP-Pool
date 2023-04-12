@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:58 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/11 19:01:51 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:23:50 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool validOrNot(const std::string &date, float value)
 	return (true);
 }
 
-void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp)
+void	checkDataFile(const std::string &file, std::map<std::string, float> &dataMAp)
 {
 	std::ifstream buff(file);
 	if (!buff.is_open())
@@ -64,18 +64,16 @@ void	checkDataFile(const std::string &file, std::map<std::string, float> dataMAp
 	}
 }
 
-void	exchange(std::string date, std::map<std::string, float> dataMAp)
+float	exchange(std::string date, std::map<std::string, float> &dataMAp)
 {
 	std::map<std::string, float>::iterator it = dataMAp.find(date);
-
-	it = dataMAp.begin();
-	while (it != dataMAp.end())
+	if (it == dataMAp.end())
 	{
-		std::cout << it->second << std::endl;
-		it++;
+		it = dataMAp.upper_bound(date);
+		if (it != dataMAp.begin())
+			it--;
 	}
-
-
+	return (it->second);
 }
 
 int	main(int ac, char **av)
@@ -99,14 +97,11 @@ int	main(int ac, char **av)
 			float value;
 			if (std::getline(ss, dateStr, '|') && ss >> value)
 			{
-				// std::cout << dateStr << std::endl;
 				if (validOrNot(dateStr, value))
 				{
-					std::cout << dataMap[dateStr] << std::endl;
-					exchange(dateStr, dataMap);
-		 			// float r = value * exchangeRate;
-					// std::cout << dateStr << " => " << value << " = " << r << std::endl;
-					// std::cout << "IN SHIT HERE WE GOO AGAIN" << std::endl; 
+					float vExchange = exchange(dateStr, dataMap);
+		 			float calc = value * vExchange;
+					std::cout << dateStr << " => " << value << " = " << calc << std::endl;
 				}
 			}
 			else
