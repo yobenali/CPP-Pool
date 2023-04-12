@@ -4,21 +4,11 @@
 # include <iostream>
 # include <fstream>
 # include <sstream>
-# include <cstdlib>
 # include <string>
 # include <map>
 
-class BitcoinExchange
-{
-	public:
-	        BitcoinExchange(void);
-	        BitcoinExchange(const std::string &file);
-	        BitcoinExchange(const BitcoinExchange &obj);
-	        virtual ~BitcoinExchange(void);
-
-	        BitcoinExchange &operator=(const BitcoinExchange &obj);
-	        float getBitcoinExchange(const std::string &date, float value) const;
-};
-std::ostream &operator<<(std::ostream &out, const BitcoinExchange &i);
+bool	validOrNot(const std::string &date, float value);
+float	exchange(std::string date, std::map<std::string, float> &dataMAp);
+void	checkDataFile(const std::string &file, std::map<std::string, float> &dataMAp);
 
 #endif
