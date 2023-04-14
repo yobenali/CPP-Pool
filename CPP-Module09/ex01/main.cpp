@@ -6,31 +6,11 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:57:47 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/14 18:01:12 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:33:01 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
-int	stackCheck(std::stack<double> &myStack, std::string str, int i)
-{
-	char 	c;
-	double	nb1 = 0;
-	double	nb2 = 0;
-	
-	if (i != 0)
-		i++;
-	while (str[i] && str[i] != '+' && str[i] != '-' && str[i] != '*' && str[i] != '/')
-		i++;
-	c = str[i];
-	nb1 = myStack.top();
-	myStack.pop();
-	nb2 = myStack.top();
-	myStack.pop();
-	nb1 = validOp(c, nb1, nb2);
-	myStack.push(nb1);
-	return (i);
-}
 
 int main(int ac, char **av)
 {
@@ -49,30 +29,7 @@ int main(int ac, char **av)
 		len--;
 		while (str[len])
 		{
-			if (isspace(str[len]))
-				len--;
-			if (isdigit(str[len]) && isdigit(str[len - 1]) && len >= 0)
-			{
-				std::cerr << "Error" << std::endl;
-				return (1);
-			}
-			if (isdigit(str[len]))
-			{
-				myStack.push(str[len] - 48);
-					len--;
-				if (myStack.top() == 0 && str[len + 3] == '/' && len < i)
-				{
-					std::cerr << "Error" << std::endl;
-					return (1);
-				}
-				if (isspace(str[len]))
-				len--;
-			}
-			if ((str[len] == '+' || str[len] == '-' || str[len] == '*' || str[len] == '/') && len >= 0)
-			{
-				op++;
-				len--;
-			}
+			len = parsing(myStack, str, len, i, op);
 			if (len == -1)
 				break;
 			if ((str[len] != '+' && str[len] != '-' && str[len] != '*' && str[len] != '/' && \
