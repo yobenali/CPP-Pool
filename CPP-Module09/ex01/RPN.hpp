@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 22:34:13 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/14 18:33:31 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:35:24 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <string>
 # include <stack>
 
-double	validOp(char c, double first, double second);
-int		stackCheck(std::stack<double> &myStack, std::string str, int i);
-int		parsing(std::stack<double> &myStack, std::string str, int len, int i, int op);
+void	parsing(std::stack<int> &myStack ,std::string str);
+void	data_init(std::stack<int> &myStack, std::string str);
+void	validOp(std::stack<int> &myStack, char c, int first, int second);
 
 #endif
