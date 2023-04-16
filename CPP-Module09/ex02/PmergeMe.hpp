@@ -5,5 +5,7 @@
 # include <fstream>
 # include <sstream>
 # include <string>
+# include <vector>
+# include <deque>
 
 #endif
