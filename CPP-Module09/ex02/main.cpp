@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:58:02 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/17 17:25:38 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:17:24 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(int ac, char **av)
 	unsigned long		p = 0;
 	std::deque<int>		myDeque;
 	std::vector<int>	myVector;
+	clock_t vStart, dStart, vEnd, dEnd;
+	
 	if (ac > 1)
 	{
 		parsing(ac, av);
@@ -66,15 +68,23 @@ int	main(int ac, char **av)
 			std::cout << myVector[i - 1] << " ";
 			i++;
 		}
-		// std::cout << myVector.size() << std::endl;
+		vStart = clock();
 		mergeSortV(myVector, 0, myVector.size() - 1);
+		vEnd = clock();
+		dStart = clock();
 		mergeSortD(myDeque, 0, myDeque.size() - 1);
+		dEnd = clock();
 		std::cout << "\nAfter:  ";
 		while (p < myDeque.size())
 		{
 			std::cout << myDeque[p] << " ";
 			p++;
-		} 
+		}
+		double duration = (double)(vEnd - vStart) / 1000;
+		std::cout << "\nTime to process a range of " << myVector.size() << " elements with std::vector : " << duration << " us" << std::endl;
+		double dDuration = (double)(dEnd - dStart) / 1000;
+		std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque : " << dDuration <<  " us" << std::endl;
+
 	}
 	else 
 		std::cerr << "Error args" << std::endl;

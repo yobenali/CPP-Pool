@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:58:08 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/17 17:27:12 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:28:56 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	mergeSortD(std::deque<int> &myDeque,  int start, int end)
 	mergeSortD(myDeque, start, mid);
 	mergeSortD(myDeque, mid + 1, end);
 	i = start, j = mid + 1, k = 0;
-	std::vector<int> tmp(end - start + 1);
+	std::deque<int> tmp(end - start + 1);
 	while (i <= mid && j <= end)
 	{
 		if (myDeque[i] <= myDeque[j])
