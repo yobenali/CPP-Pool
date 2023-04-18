@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:57:37 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/16 00:34:43 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/18 13:18:28 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	validOp(std::stack<int> &myStack, char c, int first, int second)
 {
-	int tmp;
+	int	tmp = 0;
 
 	if (c == '-')
 		tmp = first - second;
@@ -50,7 +50,7 @@ void	parsing(std::stack<int> &myStack ,std::string str)
 		}
 		i++;
 	}
-	if (dig == op)
+	if (!(dig == op + 1))
 	{
 		std::cerr << "Error" << std::endl;
 		exit (1);

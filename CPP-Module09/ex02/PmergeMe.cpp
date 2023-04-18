@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:58:08 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/18 00:28:56 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:24:29 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	inserionSortD(std::deque<int> &myDeque, int start, int end)
 
 void	mergeSortV(std::vector<int> &myVector,  int start, int end)
 {
-	int mid = (end - start) / 2;
+	int mid = start + (end - start) / 2;
 	int i, j, k;
-	if (end - start <= 10)
+	if (end - start <= 2)
 	{
 		inserionSortV(myVector, start, end);
 		return;
@@ -79,16 +79,21 @@ void	mergeSortV(std::vector<int> &myVector,  int start, int end)
 		tmp[k++] = myVector[i++];
 	while (j <= end)
 		tmp[k++] = myVector[j++];
-	k = -1;
-	while (++k <= end)
-		myVector[k] = tmp[k];
+	i = start;
+	k = 0;
+	while (i <= end)
+	{
+		myVector[i] = tmp[k];
+		i++;
+		k++;
+	}
 }
 
 void	mergeSortD(std::deque<int> &myDeque,  int start, int end)
 {
-	int mid = (end - start) / 2;
+	int mid = start + (end - start) / 2;
 	int i, j, k;
-	if (end - start <= 10)
+	if (end - start <= 2)
 	{
 		inserionSortD(myDeque, start, end);
 		return;
@@ -110,7 +115,12 @@ void	mergeSortD(std::deque<int> &myDeque,  int start, int end)
 		tmp[k++] = myDeque[i++];
 	while (j <= end)
 		tmp[k++] = myDeque[j++];
-	k = -1;
-	while (++k <= end)
-		myDeque[k] = tmp[k];
+	i = start;
+	k = 0;
+	while (i <= end)
+	{
+		myDeque[i] = tmp[k];
+		i++;
+		k++;
+	}
 }

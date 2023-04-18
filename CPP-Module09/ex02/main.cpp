@@ -6,7 +6,7 @@
 /*   By: yobenali <yobenali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:58:02 by yobenali          #+#    #+#             */
-/*   Updated: 2023/04/18 00:17:24 by yobenali         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:39:55 by yobenali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void	parsing(int ac, char **av)
 			std::cerr << "Error non positive INT" << std::endl;
 			exit(1);
 		}
-		while (j < ac)
-		{
-			if (!strcmp(av[i], av[j]))
-			{
-				std::cerr << "Error duplication found" << std::endl;
-				exit(1);
-			}
-			j++;
-		}
+		// while (j < ac)
+		// {
+		// 	if (!strcmp(av[i], av[j]))
+		// 	{
+		// 		std::cerr << "Error duplication found" << std::endl;
+		// 		exit(1);
+		// 	}
+		// 	j++;
+		// }
 		i++;
 	}
 }
@@ -80,14 +80,12 @@ int	main(int ac, char **av)
 			std::cout << myDeque[p] << " ";
 			p++;
 		}
-		double duration = (double)(vEnd - vStart) / 1000;
+		double duration = ((double)(vEnd - vStart) / CLOCKS_PER_SEC) * 1000;
 		std::cout << "\nTime to process a range of " << myVector.size() << " elements with std::vector : " << duration << " us" << std::endl;
-		double dDuration = (double)(dEnd - dStart) / 1000;
-		std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque : " << dDuration <<  " us" << std::endl;
-
+		double dDuration = ((double)(dEnd - dStart) / CLOCKS_PER_SEC) * 1000;
+		std::cout << "Time to process a range of " << myVector.size() << " elements with std::deque  : " << dDuration <<  " us" << std::endl;
 	}
 	else 
 		std::cerr << "Error args" << std::endl;
-	// system("leaks PmergeMe");
 	return (0);
 }
